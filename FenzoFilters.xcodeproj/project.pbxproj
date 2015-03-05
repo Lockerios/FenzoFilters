@@ -14,6 +14,9 @@
 		A6AF68D61AA7476000A801BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6AF68D51AA7476000A801BB /* Images.xcassets */; };
 		A6AF68D91AA7476000A801BB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6AF68D71AA7476000A801BB /* LaunchScreen.xib */; };
 		A6AF68E51AA7476000A801BB /* FenzoFiltersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AF68E41AA7476000A801BB /* FenzoFiltersTests.m */; };
+		A6AF68EF1AA7497900A801BB /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AF68EE1AA7497900A801BB /* 1.png */; };
+		A6AF68F21AA74A0300A801BB /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AF68F11AA74A0300A801BB /* FilterViewController.m */; };
+		A6AF68F51AA74E8400A801BB /* FilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AF68F41AA74E8400A801BB /* FilterCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,11 @@
 		A6AF68DE1AA7476000A801BB /* FenzoFiltersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FenzoFiltersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6AF68E31AA7476000A801BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6AF68E41AA7476000A801BB /* FenzoFiltersTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FenzoFiltersTests.m; sourceTree = "<group>"; };
+		A6AF68EE1AA7497900A801BB /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		A6AF68F01AA74A0300A801BB /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		A6AF68F11AA74A0300A801BB /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		A6AF68F31AA74E8400A801BB /* FilterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterCollectionViewCell.h; sourceTree = "<group>"; };
+		A6AF68F41AA74E8400A801BB /* FilterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +89,15 @@
 		A6AF68C71AA7476000A801BB /* FenzoFilters */ = {
 			isa = PBXGroup;
 			children = (
+				A6AF68EE1AA7497900A801BB /* 1.png */,
 				A6AF68CC1AA7476000A801BB /* AppDelegate.h */,
 				A6AF68CD1AA7476000A801BB /* AppDelegate.m */,
 				A6AF68CF1AA7476000A801BB /* ViewController.h */,
 				A6AF68D01AA7476000A801BB /* ViewController.m */,
+				A6AF68F31AA74E8400A801BB /* FilterCollectionViewCell.h */,
+				A6AF68F41AA74E8400A801BB /* FilterCollectionViewCell.m */,
+				A6AF68F01AA74A0300A801BB /* FilterViewController.h */,
+				A6AF68F11AA74A0300A801BB /* FilterViewController.m */,
 				A6AF68D21AA7476000A801BB /* Main.storyboard */,
 				A6AF68D51AA7476000A801BB /* Images.xcassets */,
 				A6AF68D71AA7476000A801BB /* LaunchScreen.xib */,
@@ -200,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6AF68D41AA7476000A801BB /* Main.storyboard in Resources */,
+				A6AF68EF1AA7497900A801BB /* 1.png in Resources */,
 				A6AF68D91AA7476000A801BB /* LaunchScreen.xib in Resources */,
 				A6AF68D61AA7476000A801BB /* Images.xcassets in Resources */,
 			);
@@ -220,7 +234,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6AF68D11AA7476000A801BB /* ViewController.m in Sources */,
+				A6AF68F51AA74E8400A801BB /* FilterCollectionViewCell.m in Sources */,
 				A6AF68CE1AA7476000A801BB /* AppDelegate.m in Sources */,
+				A6AF68F21AA74A0300A801BB /* FilterViewController.m in Sources */,
 				A6AF68CB1AA7476000A801BB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
