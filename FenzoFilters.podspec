@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "FenzoFilters"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "Filters for iOS image. Filter Methods reference to https://github.com/yackle/CLImageEditor"
 
   # This description is used to generate tags and improve search results.
