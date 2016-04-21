@@ -8,6 +8,7 @@
 
 #import "FilterViewController.h"
 #import "FilterCollectionViewCell.h"
+#import "UIImage+FenzoFilter.h"
 
 #define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f \
 alpha:(a)]
@@ -61,37 +62,6 @@ alpha:(a)]
     [_previewImageView setImage:image];
     
     self.submitBlk = callback;
-}
-
-- (UIImage*)filteredImage:(UIImage*)image withFilterName:(NSString*)filterName
-{
-    if([filterName isEqualToString:@"CLDefaultEmptyFilter"]){
-        return image;
-    }
-    
-    CIImage *ciImage = [[CIImage alloc] initWithImage:image];
-    CIFilter *filter = [CIFilter filterWithName:filterName keysAndValues:kCIInputImageKey, ciImage, nil];
-    
-    [filter setDefaults];
-    
-    if([filterName isEqualToString:@"CIVignetteEffect"]){
-        // parameters for CIVignetteEffect
-        CGFloat R = MIN(image.size.width, image.size.height)*image.scale/2;
-        CIVector *vct = [[CIVector alloc] initWithX:image.size.width*image.scale/2 Y:image.size.height*image.scale/2];
-        [filter setValue:vct forKey:@"inputCenter"];
-        [filter setValue:[NSNumber numberWithFloat:0.9] forKey:@"inputIntensity"];
-        [filter setValue:[NSNumber numberWithFloat:R] forKey:@"inputRadius"];
-    }
-    
-    CIContext *context = [CIContext contextWithOptions:@{kCIContextUseSoftwareRenderer : @(NO)}];
-    CIImage *outputImage = [filter outputImage];
-    CGImageRef cgImage = [context createCGImage:outputImage fromRect:[outputImage extent]];
-    
-    UIImage *result = [UIImage imageWithCGImage:cgImage];
-    
-    CGImageRelease(cgImage);
-    
-    return result;
 }
 
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
@@ -207,7 +177,7 @@ alpha:(a)]
         __block NSDictionary* blkFiltersImageDict = _filtersImageDict;
         __block NSInteger blkRowNum = indexPath.row;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            __block UIImage* filterdImage = [self filteredImage:blkNormalImage withFilterName:blkFiltersAry[blkRowNum]];
+            __block UIImage* filterdImage = [UIImage filteredImage:blkNormalImage withFilterName:blkFiltersAry[blkRowNum]];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [blkImageView setImage:filterdImage];
                 [blkFiltersImageDict setValue:filterdImage forKey:blkFiltersAry[blkRowNum]];
@@ -248,7 +218,7 @@ alpha:(a)]
     __block NSArray* blkFiltersAry = _filtersAry;
     __block NSInteger blkRowNum = indexPath.row;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        __block UIImage* filterdImage = [self filteredImage:blkNormalImage withFilterName:blkFiltersAry[blkRowNum]];
+        __block UIImage* filterdImage = [UIImage filteredImage:blkNormalImage withFilterName:blkFiltersAry[blkRowNum]];
         blkSubmitImage = filterdImage;
         dispatch_async(dispatch_get_main_queue(), ^{
             [blkPreviewImageView setImage:filterdImage];
